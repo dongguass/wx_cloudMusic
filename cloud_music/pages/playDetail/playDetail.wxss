@@ -1,0 +1,126 @@
+.playDetailContainer{
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 播放指针样式，以及播放与停止时上下浮动的转换 */
+.playDetailContainer .needle{
+  position: relative;
+  left: 60rpx;
+  width: 192rpx;
+  height: 274rpx;
+  margin-top: 20rpx;
+  z-index: 99;
+  transform-origin: 40rpx 0;
+  transform: rotate(-20deg);
+  transition: transform 1s;
+}
+
+.playDetailContainer .needleMove{
+  transform: rotate(0deg);
+}
+
+/* 磁盘样式 */
+.discContainer {
+  position: relative;
+  top: -120rpx;
+  width: 598rpx;
+  height: 598rpx;
+}
+.discAnimation{
+  animation: disc 5s linear infinite;
+  animation-delay: 1s;
+}
+@keyframes disc {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+
+.discContainer .disc{
+  width: 598rpx;
+  height: 598rpx;
+}
+
+.discContainer .musicImg{
+  /* 使子元素在父元素中水平垂直居中 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+
+  width: 370rpx;
+  height: 370rpx;
+  border-radius: 50%;
+}
+
+/* 底部控制区域 */
+.musicControl{
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  border-top: 1rpx solid #ffffff;
+  width: 100%;
+  display: flex;
+  
+}
+
+.musicControl text{
+  flex-grow: 1;
+  text-align: center;
+  height: 120rpx;
+  line-height: 120rpx;
+  color: #ffffff;
+  font-size: 50rpx;
+}
+
+.musicControl .big{
+  font-size: 80rpx;
+}
+
+/* 进度条样式 */
+.progressControl{
+  position: absolute;
+  bottom: 200rpx;
+  width: 640rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+}
+/* 总进度条 */
+.barControl{
+  position: relative;
+  width: 450rpx;
+  height: 4rpx;
+  background-color: rgba(0,0,0,0.5);
+  flex-grow: 1;
+  margin: auto;
+}
+
+/* 实时进度条样式 */
+.audioCurrent{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4rpx;
+  background-color: red;
+  z-index: 99;
+}
+
+.videoCircle{
+  width: 12rpx;
+  height: 12rpx;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  right: -12rpx;
+  top: -4rpx;
+}
